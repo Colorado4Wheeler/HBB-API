@@ -39,7 +39,7 @@ This is a minor modification needed for `Devices.xml` so that the ability to lin
 	<!-- Start **Homebridge Buddy** Integration Block -->		
 	<Field type="checkbox" id="hbbIntegrated" defaultValue="false" hidden="false">
 		<Label>Enable for HomeKit</Label>
-		<Description>Integrate this device into **Homebridge Buddy**</Description>
+		<Description>Integrate this device into Homebridge Buddy</Description>
 		<CallbackMethod>hbbIntegrationFieldChange</CallbackMethod>
 	</Field>
 
