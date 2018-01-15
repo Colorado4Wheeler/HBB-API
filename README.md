@@ -1,16 +1,16 @@
 # Homebridge Buddy 3rd Party Developer API
 
-This is an easy way to integrate your plugin with Homebridge Buddy and HomeKit.  Most of the heavy lifting is done by Homebridge Buddy so the changes to your plugin are minor.  
+This is an easy way to integrate your plugin with [Homebridge Buddy](http://www.indigodomo.com/pluginstore/31/) and HomeKit.  Most of the heavy lifting is done by **Homebridge Buddy** so the changes to your plugin are minor.  
 
-Once implemented you can directly integrate your plugin device with Homebridge Buddy without the need for the user to go into the server configuration and link to it.  You have full control over how to treat this device, so if you feel your device is best represented in HomeKit as, say, a switch rather than a dimmer then you can default to that and remove the users ability to change it.
+Once implemented you can directly integrate your plugin device with **Homebridge Buddy** without the need for the user to go into the server configuration and link to it.  You have full control over how to treat this device, so if you feel your device is best represented in HomeKit as, say, a switch rather than a dimmer then you can default to that and remove the users ability to change it.
 
-## Homebridge Buddy
+## **Homebridge Buddy**
 
-Once you integrate this API, Homebridge Buddy will do the rest.  As soon as you enable the link to Homebridge Buddy then as soon as that device has been created it will be added to the server.  The same goes for updating a device or deleting a device from Indigo.  All of these functions will prompt Homebridge Buddy to take action on it's own configuration.  There is nothing complex for you to do with your plugin to make these things happen.
+Once you integrate this API, **Homebridge Buddy** will do the rest.  As soon as you enable the link to **Homebridge Buddy** then as soon as that device has been created it will be added to the server.  The same goes for updating a device or deleting a device from Indigo.  All of these functions will prompt **Homebridge Buddy** to take action on it's own configuration.  There is nothing complex for you to do with your plugin to make these things happen.
 
-The primary reason for making sure Homebridge Buddy does the majority of the work is so that as this API matures there is little need for you to change your plugin code to be compatible.  The changes can be implemented in Homebridge Buddy's code instead.
+The primary reason for making sure **Homebridge Buddy** does the majority of the work is so that as this API matures there is little need for you to change your plugin code to be compatible.  The changes can be implemented in **Homebridge Buddy**'s code instead.
 
-**API support is available in Homebridge Buddy 1.0.7 or newer.**
+**API support is available in **Homebridge Buddy** 1.0.7 or newer.**
 
 ## Integrating The HBB API Into Your Plugin
 
@@ -34,12 +34,12 @@ That's all there is to it.
 
 ### Devices.xml Modification
 
-This is a minor modification needed for `Devices.xml` so that the ability to link to Homebridge Buddy is available to your users.  Feel free to move these fields around how you see fit just so long as ALL the fields remain in your device, hidden or visible, and that the ID of these fields do not change.
+This is a minor modification needed for `Devices.xml` so that the ability to link to **Homebridge Buddy** is available to your users.  Feel free to move these fields around how you see fit just so long as ALL the fields remain in your device, hidden or visible, and that the ID of these fields do not change.
 
-	<!-- Start Homebridge Buddy Integration Block -->		
+	<!-- Start **Homebridge Buddy** Integration Block -->		
 	<Field type="checkbox" id="hbbIntegrated" defaultValue="false" hidden="false">
 		<Label>Enable for HomeKit</Label>
-		<Description>Integrate this device into Homebridge Buddy</Description>
+		<Description>Integrate this device into **Homebridge Buddy**</Description>
 		<CallbackMethod>hbbIntegrationFieldChange</CallbackMethod>
 	</Field>
 
@@ -61,7 +61,7 @@ This is a minor modification needed for `Devices.xml` so that the ability to lin
 	</Field>
 
 	<Field type="separator" id="sep_hbbConnector" visibleBindingId="hbbIntegrated" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true"/>
-	<!-- End Homebridge Buddy Integration Block -->
+	<!-- End **Homebridge Buddy** Integration Block -->
 
 Once integrated your device will appear similar to the following sample device, note that if the box is unchecked then you will not see the fields nor the separator.
 
@@ -69,7 +69,7 @@ Once integrated your device will appear similar to the following sample device, 
 
 ### Functions To Add To Your `plugin.py`
 
-The following functions are called by the device fields to verify and then connect to the Homebridge Buddy plugin.  They will verify that it is installed and of an appropriate version for this version of API.
+The following functions are called by the device fields to verify and then connect to the **Homebridge Buddy** plugin.  They will verify that it is installed and of an appropriate version for this version of API.
 
 	def hbbCheckForPlugin (self): return hbb.checkForPlugin ()
 	def hbbIntegrationFieldChange (self, valuesDict, typeId, devId): return hbb.integrationFieldChange (valuesDict, typeId, devId)
